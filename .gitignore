@@ -10,9 +10,16 @@ venv/
 
 # uv specific files
 uv.lock
+uv.lock
+dist/
+build/
+*.egg-info/
 
 # Editor and OS files
 .DS_Store
 .vscode/
 *.swp
 *~
+
+# .env
+.env
