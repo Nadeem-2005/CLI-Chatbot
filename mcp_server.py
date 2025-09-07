@@ -71,7 +71,7 @@ def fetch_doc(doc_id:str):
 
 def format_doc_prompt(
     doc_id:str = Field(description="The ID of the document to be formatted.")
-):
+) -> list[base.UserMessage]:
     prompt = f"""
 Your goal is to reformat a document to be written with markdown syntax.
 
@@ -84,7 +84,7 @@ Add in headers, bullet points, tables, etc as necessary. Feel free to add in str
 Use the 'edit_document' tool to edit the document. After the document has been reformatted...
 """
     
-    return base.UserMessage(prompt)
+    return [base.UserMessage(prompt)]
 # TODO: Write a prompt to summarize a doc
 
 
