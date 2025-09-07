@@ -50,7 +50,18 @@ def list_doc_ids() :
     return list(docs.keys())
 
 # TODO: Write a resource to return the contents of a particular doc
-# TODO: Write a prompt to rewrite a doc in markdown format
+@mcp.resource(
+    uri = "docs://doc_contents/{doc_id}",
+    name = "get_doc_contents",
+    description = "Returns the contents of a document given its ID.",
+    mime_type="text/plain",
+)
+
+def get_contents(doc_id:str):
+    if doc_id not in docs:
+        return f"Error: Document with ID '{doc_id}' not found."
+    return docs[doc_id]
+# TODO: Write a prompt to rewrite a doc in markdown fo(rmat
 # TODO: Write a prompt to summarize a doc
 
 
