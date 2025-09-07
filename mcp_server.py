@@ -40,27 +40,28 @@ def edit_doc(
 
 # TODO: Write a resource to return all doc id's
 @mcp.resource(
-    uri="docs://doc_ids",
-    name = "list_doc_ids",
-    description = "Returns a list of all document IDs available.",
+    uri="docs://documents",
+    # name = "list_doc_ids",
+    # description = "Returns a list of all document IDs available.",
     mime_type="application/json",
 )
 
-def list_doc_ids() :
+def list_docs() -> list[str] :
     return list(docs.keys())
 
 # TODO: Write a resource to return the contents of a particular doc
 @mcp.resource(
-    uri = "docs://doc_contents/{doc_id}",
-    name = "get_doc_contents",
-    description = "Returns the contents of a document given its ID.",
+    uri = "docs://documents/{doc_id}",
+    # name = "get_doc_contents",
+    # description = "Returns the contents of a document given its ID.",
     mime_type="text/plain",
 )
 
-def get_contents(doc_id:str):
+def fetch_doc(doc_id:str):
     if doc_id not in docs:
         return f"Error: Document with ID '{doc_id}' not found."
     return docs[doc_id]
+
 # TODO: Write a prompt to rewrite a doc in markdown fo(rmat
 # TODO: Write a prompt to summarize a doc
 
