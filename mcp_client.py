@@ -84,8 +84,8 @@ async def main():
         command="uv",
         args=["run", "mcp_server.py"],
     ) as _client:
-        pass
-
+        result = await _client.list_tools()
+        print("Tools:", result)
 
 if __name__ == "__main__":
     if sys.platform == "win32":
